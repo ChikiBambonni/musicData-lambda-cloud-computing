@@ -47,10 +47,10 @@ export const handler = async (
       body: JSON.stringify(body),
       headers,
     };
-  } catch (err) {
+  } catch (err: any) {
     return {
       statusCode: 400,
-      body: JSON.stringify(err),
+      body: JSON.stringify(err.message),
       headers,
     };
   }

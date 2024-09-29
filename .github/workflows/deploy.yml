@@ -31,3 +31,6 @@ jobs:
 
       - name: Upload to S3
         run: aws s3 cp dist/index.zip s3://http-crud-music-data-lambda/index.zip
+
+      - name: Update Lambda Function Code
+        run: aws lambda update-function-code --function-name http-crud-musicData --s3-bucket ${{ secrets.AWS_S3_BUCKET }} --s3-key index.zip
