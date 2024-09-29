@@ -44,7 +44,7 @@ export const handler = async (
 
     return {
       statusCode: 200,
-      body: JSON.stringify(body),
+      body: JSON.stringify('hello world'),
       headers,
     };
   } catch (err: any) {
