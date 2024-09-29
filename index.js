@@ -9,7 +9,7 @@ const client = new DynamoDBClient({});
 const dynamo = DynamoDBDocumentClient.from(client);
 const tableName = "musicData";
 
-export const handler = async (event, context) => {
+export const handler = async (event) => {
   let body;
   let statusCode = 200;
   const headers = {
