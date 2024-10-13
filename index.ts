@@ -30,7 +30,7 @@ export const handler = async (
   const routeKey = event.routeKey;
 
   try {
-    const body = await (async () => {
+    const body = (async () => {
       switch (routeKey) {
         case 'GET /items':
           return (await getAllItems()).Items;
@@ -44,7 +44,10 @@ export const handler = async (
 
     return {
       statusCode: 200,
-      body: JSON.stringify(body),
+      body: JSON.stringify({
+        data: await body,
+        date: new Date().toISOString(),
+      }),
       headers,
     };
   } catch (err: any) {

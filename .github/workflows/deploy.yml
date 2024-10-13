@@ -34,3 +34,6 @@ jobs:
 
       - name: Update Lambda Function Code
         run: aws lambda update-function-code --function-name http-crud-musicData --s3-bucket ${{ secrets.AWS_S3_BUCKET }} --s3-key index.zip
+
+      - name: Invalidate CloudFront Cache
+        run: aws cloudfront create-invalidation --distribution-id E2RL22S5DD3N3S --paths "/*"
