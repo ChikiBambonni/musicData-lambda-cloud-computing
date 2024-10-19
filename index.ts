@@ -46,7 +46,7 @@ export const handler = async (
       statusCode: 200,
       body: JSON.stringify({
         data: await body,
-        date: 'test', // new Date().toISOString(),
+        date: new Date().toISOString(),
       }),
       headers,
     };
